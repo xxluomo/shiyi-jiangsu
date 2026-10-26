@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="800" viewBox="0 0 720 800" role="img"><title>竹刻意象·原创示意插画</title><defs>
+<linearGradient id="bg" x2="1" y2="1"><stop stop-color="#ebe8d8"/><stop offset="1" stop-color="#d5ddce"/></linearGradient>
+<linearGradient id="pot" x2="0.8" y2="1"><stop stop-color="#bd7c52"/><stop offset=".5" stop-color="#9c583a"/><stop offset="1" stop-color="#693d2c"/></linearGradient>
+<linearGradient id="red" x2="1" y2="1"><stop stop-color="#b95843"/><stop offset="1" stop-color="#8e302c"/></linearGradient>
+<radialGradient id="face"><stop stop-color="#fff2cb"/><stop offset="1" stop-color="#e5c794"/></radialGradient>
+<pattern id="grain" width="7" height="7" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r=".6" fill="#677456" opacity=".1"/></pattern>
+<filter id="shadow"><feGaussianBlur stdDeviation="7"/></filter>
+</defs><rect width="720" height="800" fill="#dedfcf"/><rect width="720" height="800" fill="url(#grain)"/><ellipse cx="360" cy="644" rx="166" ry="17" fill="#53634d" opacity=".14" filter="url(#shadow)"/>
+<path d="M231 198 Q357 161 487 198 L485 621 Q359 663 231 621 Z" fill="#a5814e" stroke="#7b643f" stroke-width="3"/>
+<ellipse cx="359" cy="198" rx="129" ry="28" fill="#d0b780"/><ellipse cx="359" cy="198" rx="113" ry="19" fill="#7c683e"/><ellipse cx="359" cy="203" rx="107" ry="12" fill="#958151"/>
+<path d="M257 224 L257 613 M275 225 L275 621 M444 226 L444 622 M466 225 L466 615" stroke="#d6ba7f" opacity=".35" fill="none"/>
+<path d="M296 598 Q357 448 416 278 M333 506 L292 401 M367 418 L443 371" stroke="#e2cda0" stroke-width="6" fill="none"/>
+<path d="M334 506 Q285 488 287 451 Q326 460 334 506 M353 461 Q414 449 419 413 Q372 412 353 461 M382 375 Q337 356 340 318 Q380 335 382 375 M410 294 Q456 306 461 273 Q432 266 410 294" fill="#d8c18b" stroke="#efdcb0" stroke-width="1"/>
+<path d="M315 399 Q310 355 281 338 Q270 376 315 399 M406 399 Q441 414 462 390 Q446 365 406 399" fill="#d8c18b"/>
+<path d="M319 348 Q367 310 405 337 Q384 366 358 361 L336 389 Z" fill="#e4d0a4"/><path d="M405 337 L424 336 L406 346" fill="#e4d0a4"/><circle cx="396" cy="335" r="3" fill="#8b7147"/>
+<path d="M347 346 L327 326 L316 361" fill="none" stroke="#927646" stroke-width="2"/>
+<text x="360" y="710" text-anchor="middle" font-family="serif" font-size="17" fill="#6b6754" letter-spacing="9">竹 上 留 韵</text></svg>

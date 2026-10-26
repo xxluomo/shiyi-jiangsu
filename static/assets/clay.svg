@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="800" viewBox="0 0 720 800" role="img"><title>惠山泥人意象·原创示意插画</title><defs>
+<linearGradient id="bg" x2="1" y2="1"><stop stop-color="#ebe8d8"/><stop offset="1" stop-color="#d5ddce"/></linearGradient>
+<linearGradient id="pot" x2="0.8" y2="1"><stop stop-color="#bd7c52"/><stop offset=".5" stop-color="#9c583a"/><stop offset="1" stop-color="#693d2c"/></linearGradient>
+<linearGradient id="red" x2="1" y2="1"><stop stop-color="#b95843"/><stop offset="1" stop-color="#8e302c"/></linearGradient>
+<radialGradient id="face"><stop stop-color="#fff2cb"/><stop offset="1" stop-color="#e5c794"/></radialGradient>
+<pattern id="grain" width="7" height="7" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r=".6" fill="#677456" opacity=".1"/></pattern>
+<filter id="shadow"><feGaussianBlur stdDeviation="7"/></filter>
+</defs><rect width="720" height="800" fill="#e9dfcb"/><rect width="720" height="800" fill="url(#grain)"/><circle cx="361" cy="350" r="222" fill="#edcfaa" opacity=".35"/>
+<ellipse cx="360" cy="650" rx="164" ry="18" fill="#53634d" opacity=".15" filter="url(#shadow)"/>
+<path d="M239 431 Q183 451 204 540 Q218 574 251 552 M482 431 Q540 451 518 540 Q502 574 468 552" fill="url(#red)" stroke="#7e372e" stroke-width="2"/>
+<path d="M251 417 Q359 390 468 417 L493 600 Q482 657 360 655 Q238 655 227 600 Z" fill="url(#red)"/>
+<path d="M302 426 L360 489 L419 426 L416 611 Q359 633 305 611 Z" fill="#2e655e"/>
+<path d="M305 455 L360 500 L415 455" fill="none" stroke="#dfbf6c" stroke-width="5"/>
+<ellipse cx="360" cy="327" rx="132" ry="124" fill="#253d36"/>
+<ellipse cx="360" cy="348" rx="119" ry="110" fill="url(#face)"/>
+<path d="M248 301 Q242 211 322 215 Q339 267 360 267 Q386 268 400 215 Q477 215 475 302 Q458 283 425 277 Q365 321 295 276 Q262 281 248 301" fill="#2c3e36"/>
+<ellipse cx="280" cy="375" rx="24" ry="14" fill="#d57762" opacity=".45"/><ellipse cx="440" cy="375" rx="24" ry="14" fill="#d57762" opacity=".45"/>
+<path d="M290 339 Q308 324 326 339 M394 339 Q412 324 430 339" fill="none" stroke="#3e3f30" stroke-width="6" stroke-linecap="round"/>
+<path d="M332 381 Q360 406 390 381" fill="none" stroke="#a34438" stroke-width="6" stroke-linecap="round"/>
+<path d="M359 350 L354 367 L364 367" fill="none" stroke="#b58a5a" stroke-width="3"/>
+<ellipse cx="270" cy="493" rx="30" ry="23" fill="url(#face)"/><ellipse cx="451" cy="493" rx="30" ry="23" fill="url(#face)"/>
+<path d="M278 493 Q360 449 444 493 L421 551 Q360 577 301 551 Z" fill="#d2a359" stroke="#b5843b" stroke-width="2"/>
+<path d="M304 503 Q361 480 420 503" fill="none" stroke="#f6d78d" stroke-width="5"/>
+<text x="360" y="703" text-anchor="middle" font-family="serif" font-size="17" fill="#6b6754" letter-spacing="9">泥 塑 有 情</text></svg>

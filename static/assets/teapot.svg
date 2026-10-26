@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="800" viewBox="0 0 720 800" role="img"><title>紫砂壶·原创示意插画</title><defs>
+<linearGradient id="bg" x2="1" y2="1"><stop stop-color="#ebe8d8"/><stop offset="1" stop-color="#d5ddce"/></linearGradient>
+<linearGradient id="pot" x2="0.8" y2="1"><stop stop-color="#bd7c52"/><stop offset=".5" stop-color="#9c583a"/><stop offset="1" stop-color="#693d2c"/></linearGradient>
+<linearGradient id="red" x2="1" y2="1"><stop stop-color="#b95843"/><stop offset="1" stop-color="#8e302c"/></linearGradient>
+<radialGradient id="face"><stop stop-color="#fff2cb"/><stop offset="1" stop-color="#e5c794"/></radialGradient>
+<pattern id="grain" width="7" height="7" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r=".6" fill="#677456" opacity=".1"/></pattern>
+<filter id="shadow"><feGaussianBlur stdDeviation="7"/></filter>
+</defs><rect width="720" height="800" fill="#e4e6d8"/><rect width="720" height="800" fill="url(#grain)"/><ellipse cx="357" cy="566" rx="201" ry="20" fill="#53634d" opacity=".16" filter="url(#shadow)"/>
+<path d="M475 367 C614 302 615 483 482 490" fill="none" stroke="#6d412f" stroke-width="28"/>
+<path d="M480 369 C593 323 592 469 489 479" fill="none" stroke="#a36645" stroke-width="12"/>
+<path d="M226 401 C177 411 183 351 128 336 C148 392 162 457 228 479" fill="url(#pot)" stroke="#75472e" stroke-width="2"/>
+<path d="M227 373 Q355 322 485 373 L501 455 Q495 549 361 554 Q225 549 211 468 Z" fill="url(#pot)" stroke="#75472e" stroke-width="2"/>
+<ellipse cx="356" cy="375" rx="130" ry="27" fill="#704730"/><ellipse cx="356" cy="366" rx="116" ry="22" fill="#ad714b"/>
+<path d="M251 359 Q354 318 461 359" fill="#ad714b" stroke="#73472d" stroke-width="2"/>
+<ellipse cx="356" cy="339" rx="22" ry="11" fill="#7f4c30"/><path d="M339 338 Q339 313 356 313 Q375 315 373 338" fill="url(#pot)"/>
+<path d="M239 404 Q221 477 281 513" fill="none" stroke="#d49a67" stroke-width="5" opacity=".45"/>
+<path d="M282 528 Q359 548 436 525" fill="none" stroke="#573c2b" opacity=".35"/>
+<path d="M325 253 Q294 220 326 192 M362 249 Q389 220 366 186" stroke="#708473" stroke-width="3" fill="none" opacity=".5"/>
+<path d="M277 579 Q351 597 434 579" stroke="#9aab93" fill="none"/>
+<text x="359" y="651" text-anchor="middle" font-family="serif" font-size="17" fill="#5c6755" letter-spacing="9">泥 火 成 器</text></svg>

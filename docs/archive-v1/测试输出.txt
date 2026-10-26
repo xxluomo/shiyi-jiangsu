@@ -1,0 +1,25 @@
+Command: python -m unittest discover -s tests -v
+
+test_01_home_and_assets (test_system.SystemTests.test_01_home_and_assets) ... ok
+test_02_database_health (test_system.SystemTests.test_02_database_health) ... ok
+test_03_search_and_filter (test_system.SystemTests.test_03_search_and_filter) ... ok
+test_04_detail_and_missing (test_system.SystemTests.test_04_detail_and_missing) ... ok
+test_05_admin_session_and_statistics (test_system.SystemTests.test_05_admin_session_and_statistics) ... ok
+test_06_wrong_password (test_system.SystemTests.test_06_wrong_password) ... ok
+test_07_unauthorized_write (test_system.SystemTests.test_07_unauthorized_write) ... ok
+test_08_csrf_and_origin (test_system.SystemTests.test_08_csrf_and_origin) ... ok
+test_09_create_update_persist_delete (test_system.SystemTests.test_09_create_update_persist_delete) ... ok
+test_10_validation_and_sql_injection (test_system.SystemTests.test_10_validation_and_sql_injection) ... ok
+test_11_upload_and_read (test_system.SystemTests.test_11_upload_and_read) ... ok
+test_12_upload_rejects_nonimages (test_system.SystemTests.test_12_upload_rejects_nonimages) ... ok
+test_13_quiz_answers_hidden_and_incomplete (test_system.SystemTests.test_13_quiz_answers_hidden_and_incomplete) ... ok
+test_14_grading_replay_and_stats (test_system.SystemTests.test_14_grading_replay_and_stats) ... ok
+test_15_wrong_answers_score (test_system.SystemTests.test_15_wrong_answers_score) ... ok
+test_16_malformed_json (test_system.SystemTests.test_16_malformed_json) ... ok
+test_17_private_files_not_served (test_system.SystemTests.test_17_private_files_not_served) ... ok
+test_18_session_logout (test_system.SystemTests.test_18_session_logout) ... ok
+
+----------------------------------------------------------------------
+Ran 18 tests in 1.429s
+
+OK

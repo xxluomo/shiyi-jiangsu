@@ -1,0 +1,184 @@
+"""真实 HTTP + 临时 SQLite 集成测试，不改动交付数据库。运行：python -m unittest discover -s tests -v"""
+import base64
+import http.cookiejar
+import json
+from pathlib import Path
+import sqlite3
+import sys
+import tempfile
+import threading
+import unittest
+import urllib.error
+import urllib.request
+
+sys.path.insert(0, str(Path(__file__).resolve().parents[1]))
+import server
+
+
+class SystemTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        cls.temp = tempfile.TemporaryDirectory(prefix='heritage-tests-')
+        cls.original_paths = (server.DATA, server.UPLOADS, server.DB)
+        server.DATA = Path(cls.temp.name)
+        server.UPLOADS = server.DATA / 'uploads'
+        server.DB = server.DATA / 'test.db'
+        server.initialize()
+        cls.httpd = server.ThreadingHTTPServer(('127.0.0.1', 0), server.Handler)
+        cls.httpd.login_attempts = []
+        cls.httpd.rate_lock = threading.Lock()
+        cls.thread = threading.Thread(target=cls.httpd.serve_forever, daemon=True)
+        cls.thread.start()
+        cls.url = f'http://127.0.0.1:{cls.httpd.server_port}'
+        cls.client = urllib.request.build_opener(urllib.request.HTTPCookieProcessor(http.cookiejar.CookieJar()))
+        _, body, _ = cls.request('/api/login', 'POST', {'username':'admin','password':'Heritage2026!'})
+        cls.csrf = body['csrf']
+
+    @classmethod
+    def tearDownClass(cls):
+        cls.httpd.shutdown()
+        cls.httpd.server_close()
+        cls.thread.join()
+        server.DATA, server.UPLOADS, server.DB = cls.original_paths
+        cls.temp.cleanup()
+
+    @classmethod
+    def request(cls, path, method='GET', body=None, auth=True, headers=None, raw=None):
+        head = {'Content-Type':'application/json'}
+        if auth and hasattr(cls, 'csrf'):
+            head['X-CSRF-Token'] = cls.csrf
+        head.update(headers or {})
+        data = raw if raw is not None else (json.dumps(body).encode() if body is not None else None)
+        req = urllib.request.Request(cls.url+path, data=data, method=method, headers=head)
+        opener = cls.client if auth else urllib.request.build_opener()
+        try:
+            response = opener.open(req, timeout=5)
+        except urllib.error.HTTPError as error:
+            response = error
+        with response:
+            binary = response.read()
+            payload = json.loads(binary) if 'application/json' in response.headers.get('Content-Type','') else binary
+            return response.status, payload, response.headers
+
+    def sample(self):
+        return {'title':'集成测试项目','category':'传统美术','region':'江苏 · 无锡',
+                'summary':'测试介绍','content':'第一段介绍。\n第二段介绍。','steps':['准备','制作'],
+                'image':'/assets/clay.svg','source_url':'https://www.ihchina.cn/','source_name':'资料来源'}
+
+    def test_01_home_and_assets(self):
+        for path in ['/', '/admin','/style.css','/app.js','/admin.js','/assets/hero.svg','/assets/clay.svg','/assets/teapot.svg','/assets/embroidery.svg','/assets/bamboo.svg']:
+            with self.subTest(path=path):
+                status, body, headers = self.request(path)
+                self.assertEqual(status,200)
+                self.assertGreater(len(body),50)
+                self.assertEqual(headers['X-Content-Type-Options'],'nosniff')
+
+    def test_02_database_health(self):
+        self.assertEqual(self.request('/api/health')[1], {'ok':True,'database':'SQLite'})
+
+    def test_03_search_and_filter(self):
+        from urllib.parse import urlencode
+        self.assertEqual(len(self.request('/api/items')[1]['items']),4)
+        rows=self.request('/api/items?'+urlencode({'q':'紫砂','category':'传统技艺'}))[1]['items']
+        self.assertEqual(len(rows),1)
+        self.assertEqual(rows[0]['title'],'宜兴紫砂陶制作技艺')
+        self.assertEqual(self.request('/api/items?q=NOT_FOUND')[1]['items'],[])
+
+    def test_04_detail_and_missing(self):
+        self.assertEqual(self.request('/api/items/1')[1]['title'],'惠山泥人')
+        self.assertEqual(self.request('/api/items/99999')[0],404)
+
+    def test_05_admin_session_and_statistics(self):
+        self.assertTrue(self.request('/api/session')[1]['logged_in'])
+        self.assertEqual(self.request('/api/admin/stats')[0],200)
+        self.assertEqual(self.request('/api/admin/stats',auth=False)[0],401)
+
+    def test_06_wrong_password(self):
+        self.assertEqual(self.request('/api/login','POST',{'username':'admin','password':'incorrect'},auth=False)[0],401)
+
+    def test_07_unauthorized_write(self):
+        self.assertEqual(self.request('/api/items','POST',self.sample(),auth=False)[0],401)
+        self.assertEqual(self.request('/api/items/1','DELETE',auth=False)[0],401)
+
+    def test_08_csrf_and_origin(self):
+        self.assertEqual(self.request('/api/items','POST',self.sample(),headers={'X-CSRF-Token':'bad'})[0],403)
+        self.assertEqual(self.request('/api/items','POST',self.sample(),headers={'Origin':'https://other.example'})[0],403)
+
+    def test_09_create_update_persist_delete(self):
+        status, created, _=self.request('/api/items','POST',self.sample())
+        self.assertEqual(status,201)
+        path='/api/items/'+str(created['id'])
+        data=self.sample(); data['title']='修改后保留的标题'
+        self.assertEqual(self.request(path,'PUT',data)[0],200)
+        server.initialize()  # Reopening initialization must preserve existing changes.
+        self.assertEqual(self.request(path)[1]['title'],data['title'])
+        with server.connect() as con:
+            self.assertEqual(con.execute('SELECT title FROM items WHERE id=?',(created['id'],)).fetchone()[0],data['title'])
+        self.assertEqual(self.request(path,'DELETE')[0],200)
+        self.assertEqual(self.request(path)[0],404)
+
+    def test_10_validation_and_sql_injection(self):
+        for patch in [{'title':''},{'category':'unknown'},{'source_url':'javascript:alert(1)'},{'steps':[]},{'image':'/assets/../../server.py'}]:
+            self.assertEqual(self.request('/api/items','POST',{**self.sample(),**patch})[0],400)
+        self.assertEqual(self.request('/api/items?q=%27%20OR%201%3D1--')[1]['items'],[])
+
+    def test_11_upload_and_read(self):
+        png=base64.b64decode('iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mP8/x8AAwMCAO+jE7sAAAAASUVORK5CYII=')
+        status,data,_=self.request('/api/upload','POST',{'data':base64.b64encode(png).decode()})
+        self.assertEqual(status,201)
+        self.assertEqual(self.request(data['url'])[1],png)
+        item={**self.sample(),'image':data['url']}
+        status,created,_=self.request('/api/items','POST',item)
+        self.assertEqual(status,201)
+        self.request('/api/items/'+str(created['id']),'DELETE')
+
+    def test_12_upload_rejects_nonimages(self):
+        for data in ['invalid base64!',base64.b64encode(b'<svg><script/></svg>').decode()]:
+            self.assertEqual(self.request('/api/upload','POST',{'data':data})[0],400)
+
+    def test_13_quiz_answers_hidden_and_incomplete(self):
+        quiz=self.request('/api/quiz')[1]
+        self.assertEqual(len(quiz['questions']),5)
+        self.assertNotIn('answer',quiz['questions'][0])
+        self.assertEqual(self.request('/api/quiz/submit','POST',{'ticket':quiz['ticket'],'answers':{}})[0],400)
+
+    def test_14_grading_replay_and_stats(self):
+        quiz=self.request('/api/quiz')[1]
+        with server.connect() as con:
+            answers={str(q['id']):con.execute('SELECT answer FROM questions WHERE id=?',(q['id'],)).fetchone()[0] for q in quiz['questions']}
+        body={'ticket':quiz['ticket'],'answers':answers}
+        before=self.request('/api/admin/stats')[1]['attempts']
+        status,result,_=self.request('/api/quiz/submit','POST',body)
+        self.assertEqual(status,200)
+        self.assertEqual(result['score'],100)
+        self.assertEqual(len(result['results']),5)
+        self.assertEqual(self.request('/api/quiz/submit','POST',body)[0],400)
+        self.assertEqual(self.request('/api/admin/stats')[1]['attempts'],before+1)
+
+    def test_15_wrong_answers_score(self):
+        quiz=self.request('/api/quiz')[1]
+        with server.connect() as con:
+            answers={str(q['id']):(con.execute('SELECT answer FROM questions WHERE id=?',(q['id'],)).fetchone()[0]+1)%4 for q in quiz['questions']}
+        result=self.request('/api/quiz/submit','POST',{'ticket':quiz['ticket'],'answers':answers})[1]
+        self.assertEqual(result['score'],0)
+
+    def test_16_malformed_json(self):
+        self.assertEqual(self.request('/api/login','POST',auth=False,raw=b'{oops')[0],400)
+        self.assertEqual(self.request('/api/login','POST',[],auth=False)[0],400)
+
+    def test_17_private_files_not_served(self):
+        for path in ['/server.py','/seed.json','/data/heritage.db','/assets/../../server.py','/uploads/../../server.py']:
+            self.assertEqual(self.request(path)[0],404)
+
+    def test_18_session_logout(self):
+        client=urllib.request.build_opener(urllib.request.HTTPCookieProcessor(http.cookiejar.CookieJar()))
+        data=json.dumps({'username':'admin','password':'Heritage2026!'}).encode()
+        req=urllib.request.Request(self.url+'/api/login',data=data,headers={'Content-Type':'application/json'})
+        with client.open(req) as response: csrf=json.load(response)['csrf']
+        req=urllib.request.Request(self.url+'/api/logout',data=b'{}',headers={'Content-Type':'application/json','X-CSRF-Token':csrf})
+        with client.open(req) as response: self.assertEqual(response.status,200)
+        with client.open(self.url+'/api/session') as response: self.assertFalse(json.load(response)['logged_in'])
+
+
+if __name__=='__main__':
+    unittest.main(verbosity=2)

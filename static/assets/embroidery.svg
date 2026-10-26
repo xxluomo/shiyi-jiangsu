@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="720" height="800" viewBox="0 0 720 800" role="img"><title>刺绣意象·原创示意插画</title><defs>
+<linearGradient id="bg" x2="1" y2="1"><stop stop-color="#ebe8d8"/><stop offset="1" stop-color="#d5ddce"/></linearGradient>
+<linearGradient id="pot" x2="0.8" y2="1"><stop stop-color="#bd7c52"/><stop offset=".5" stop-color="#9c583a"/><stop offset="1" stop-color="#693d2c"/></linearGradient>
+<linearGradient id="red" x2="1" y2="1"><stop stop-color="#b95843"/><stop offset="1" stop-color="#8e302c"/></linearGradient>
+<radialGradient id="face"><stop stop-color="#fff2cb"/><stop offset="1" stop-color="#e5c794"/></radialGradient>
+<pattern id="grain" width="7" height="7" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r=".6" fill="#677456" opacity=".1"/></pattern>
+<filter id="shadow"><feGaussianBlur stdDeviation="7"/></filter>
+</defs><rect width="720" height="800" fill="#e4e9df"/><rect width="720" height="800" fill="url(#grain)"/><circle cx="360" cy="377" r="231" fill="#b18d5d"/><circle cx="360" cy="377" r="217" fill="#f4e9ce"/><circle cx="360" cy="377" r="209" fill="none" stroke="#cbb384" stroke-dasharray="3 5"/>
+<path d="M269 537 Q350 408 393 269 M314 472 Q410 444 473 375 M337 409 Q275 380 246 321" fill="none" stroke="#6e875e" stroke-width="7"/>
+<path d="M310 472 Q241 482 233 427 Q291 421 310 472 M345 405 Q410 379 418 328 Q355 338 345 405 M372 336 Q309 331 316 285 Q363 291 372 336 M394 436 Q436 492 481 470 Q454 422 394 436" fill="#849872" stroke="#627e58" stroke-width="2"/>
+<g fill="#be6f60" stroke="#985a4c" stroke-width="2"><ellipse cx="395" cy="267" rx="24" ry="43" transform="rotate(-30 395 267)"/><ellipse cx="431" cy="274" rx="24" ry="43" transform="rotate(35 431 274)"/><ellipse cx="438" cy="313" rx="24" ry="43" transform="rotate(85 438 313)"/><ellipse cx="394" cy="325" rx="24" ry="43" transform="rotate(145 394 325)"/><ellipse cx="371" cy="296" rx="24" ry="43" transform="rotate(-65 371 296)"/></g>
+<circle cx="405" cy="298" r="19" fill="#c6a155"/><g fill="#f2d999"><circle cx="399" cy="293" r="3"/><circle cx="411" cy="291" r="3"/><circle cx="409" cy="304" r="3"/><circle cx="398" cy="306" r="3"/></g>
+<g fill="#e3b98b" stroke="#b79468" stroke-width="2"><ellipse cx="255" cy="326" rx="18" ry="32"/><ellipse cx="279" cy="343" rx="18" ry="32" transform="rotate(70 279 343)"/><ellipse cx="263" cy="366" rx="18" ry="32" transform="rotate(140 263 366)"/><ellipse cx="234" cy="353" rx="18" ry="32" transform="rotate(-55 234 353)"/></g><circle cx="255" cy="347" r="12" fill="#aa7952"/>
+<path d="M491 528 L531 610 L548 652" stroke="#a1a6a0" stroke-width="3"/><path d="M542 639 Q593 559 523 541" stroke="#a95f50" fill="none" stroke-width="2"/>
+<path d="M302 467 L278 441 M341 400 L383 365 M379 428 L448 459" stroke="#d8dfb7" stroke-width="2" stroke-dasharray="3 3"/>
+<rect x="344" y="129" width="32" height="21" rx="3" fill="#967947"/><path d="M350 126 L350 111 L369 111 L369 126" stroke="#7c6950" fill="none" stroke-width="4"/>
+<text x="360" y="705" text-anchor="middle" font-family="serif" font-size="17" fill="#6b6754" letter-spacing="9">丝 线 生 花</text></svg>

@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1000" height="720" viewBox="0 0 1000 720" role="img"><title>蓝印花布意象 · 局部示意插画</title><defs>
+<linearGradient id="bg" x2="1" y2="1"><stop stop-color="#ebe8d8"/><stop offset="1" stop-color="#d5ddce"/></linearGradient>
+<linearGradient id="pot" x2="0.8" y2="1"><stop stop-color="#bd7c52"/><stop offset=".5" stop-color="#9c583a"/><stop offset="1" stop-color="#693d2c"/></linearGradient>
+<linearGradient id="red" x2="1" y2="1"><stop stop-color="#b95843"/><stop offset="1" stop-color="#8e302c"/></linearGradient>
+<radialGradient id="face"><stop stop-color="#fff2cb"/><stop offset="1" stop-color="#e5c794"/></radialGradient>
+<pattern id="grain" width="7" height="7" patternUnits="userSpaceOnUse"><circle cx="2" cy="2" r=".6" fill="#677456" opacity=".1"/></pattern>
+<filter id="shadow"><feGaussianBlur stdDeviation="7"/></filter>
+</defs><defs>
+<linearGradient id="silk" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#d7c6a0"/><stop offset=".5" stop-color="#eee2bf"/><stop offset="1" stop-color="#af875a"/></linearGradient>
+<linearGradient id="indigo" x1="0" x2="1" y2="1"><stop stop-color="#244d66"/><stop offset=".5" stop-color="#173e57"/><stop offset="1" stop-color="#0d2e48"/></linearGradient>
+<linearGradient id="lacquer" x1="0" x2="1" y2="1"><stop stop-color="#a84235"/><stop offset=".55" stop-color="#692b29"/><stop offset="1" stop-color="#3d2628"/></linearGradient>
+<linearGradient id="wood" x2="1" y2="1"><stop stop-color="#b58655"/><stop offset="1" stop-color="#704b33"/></linearGradient>
+<linearGradient id="jade" x2="1" y2="1"><stop stop-color="#62938b"/><stop offset="1" stop-color="#23554e"/></linearGradient>
+<pattern id="threads" width="6" height="6" patternUnits="userSpaceOnUse"><path d="M0 1H6M1 0V6" stroke="#fcf0d3" opacity=".22" stroke-width=".7"/></pattern>
+<pattern id="weave" width="40" height="44" patternUnits="userSpaceOnUse"><path d="M20 1L39 22L20 43L1 22Z" fill="none" stroke="#c69d5d" stroke-width="1.5"/><path d="M20 10L30 22L20 34L10 22Z" fill="#a34e3d" opacity=".5"/></pattern>
+<pattern id="blueflower" width="112" height="112" patternUnits="userSpaceOnUse"><g transform="translate(56 56)" fill="#f1e9d3"><ellipse ry="23" rx="8" cy="-15"/><ellipse ry="23" rx="8" cy="-15" transform="rotate(60)"/><ellipse ry="23" rx="8" cy="-15" transform="rotate(120)"/><ellipse ry="23" rx="8" cy="-15" transform="rotate(180)"/><ellipse ry="23" rx="8" cy="-15" transform="rotate(240)"/><ellipse ry="23" rx="8" cy="-15" transform="rotate(300)"/><circle r="8" fill="#174763"/><circle r="3"/></g><circle cx="0" cy="0" r="5" fill="#f1e9d3"/></pattern>
+</defs><rect width="1000" height="720" fill="#e1e4db"/><circle cx="500.0" cy="309.6" r="244.8" fill="#f6eedc" opacity=".5"/><g transform="translate(-75 -165) scale(1.65)"><ellipse cx="360" cy="640" rx="210" ry="23" fill="#4c5c4e" opacity=".12" filter="url(#shadow)"/><path d="M177 198L526 228L546 592Q369 660 187 605Z" fill="url(#indigo)" stroke="#1e3a4a" stroke-width="3"/>
+<path d="M177 198L526 228L546 592Q369 660 187 605Z" fill="url(#blueflower)"/>
+<path d="M177 198L231 221L237 606L187 605Z" fill="#e6dcc5" opacity=".17"/>
+<path d="M448 221L481 223L503 604L467 616Z" fill="#071d2b" opacity=".2"/>
+<path d="M197 214L511 244M199 227L513 257M207 578Q360 632 528 578M208 588Q360 642 529 588" stroke="#dfd8bf" fill="none" stroke-width="3"/>
+<path d="M225 233L270 229L287 597L236 606Z" fill="#a1b2b0" opacity=".13"/>
+<path d="M148 632Q192 585 276 640L307 694Q209 657 148 678Z" fill="#d0c2a1" stroke="#b7a47b" stroke-width="2"/>
+<path d="M179 638L192 657M198 635L211 654M218 640L231 660M238 648L251 669M258 657L270 678" stroke="#8f805f" stroke-width="2"/></g><rect width="1000" height="720" fill="url(#grain)"/><path d="M30 63V30H63M937 30H970V63M30 657V690H63M937 690H970V657" stroke="#9f977f" stroke-width="1" opacity=".35" fill="none"/></svg>

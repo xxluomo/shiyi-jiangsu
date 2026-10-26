@@ -1,0 +1,28 @@
+test_01_catalog (test_v2.MuseumTests.test_01_catalog) ... ok
+test_02_all_assets_and_modules (test_v2.MuseumTests.test_02_all_assets_and_modules) ... ok
+test_03_audio_ranges (test_v2.MuseumTests.test_03_audio_ranges) ... ok
+test_04_login_and_session (test_v2.MuseumTests.test_04_login_and_session) ... ok
+test_05_registration (test_v2.MuseumTests.test_05_registration) ... ok
+test_06_permissions (test_v2.MuseumTests.test_06_permissions) ... ok
+test_07_csrf_and_origin (test_v2.MuseumTests.test_07_csrf_and_origin) ... ok
+test_08_city_and_search (test_v2.MuseumTests.test_08_city_and_search) ... ok
+test_09_item_crud_and_drafts (test_v2.MuseumTests.test_09_item_crud_and_drafts) ... ok
+test_10_validation (test_v2.MuseumTests.test_10_validation) ... ok
+test_11_favorites (test_v2.MuseumTests.test_11_favorites) ... ok
+test_12_learning_progress (test_v2.MuseumTests.test_12_learning_progress) ... ok
+test_13_upload_decode_thumbnail (test_v2.MuseumTests.test_13_upload_decode_thumbnail) ... ok
+test_14_works_ownership (test_v2.MuseumTests.test_14_works_ownership) ... ok
+test_15_quiz_hidden_and_complete (test_v2.MuseumTests.test_15_quiz_hidden_and_complete) ... ok
+test_16_quiz_score_snapshot_replay (test_v2.MuseumTests.test_16_quiz_score_snapshot_replay) ... ok
+test_17_question_crud (test_v2.MuseumTests.test_17_question_crud) ... ok
+test_18_guides_and_audio (test_v2.MuseumTests.test_18_guides_and_audio) ... ok
+test_19_private_files_and_security (test_v2.MuseumTests.test_19_private_files_and_security) ... ok
+test_20_malformed_requests (test_v2.MuseumTests.test_20_malformed_requests) ... ok
+test_21_idempotent_initialize (test_v2.MuseumTests.test_21_idempotent_initialize) ... ok
+test_22_logout (test_v2.MuseumTests.test_22_logout) ... ok
+test_23_png_export (test_v2.MuseumTests.test_23_png_export) ... ok
+
+----------------------------------------------------------------------
+Ran 23 tests in 3.286s
+
+OK
